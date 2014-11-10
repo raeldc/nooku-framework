@@ -4,7 +4,7 @@
 /* domready (c) Dustin Diaz 2012 - License MIT */
 !function(e,t){typeof module!="undefined"?module.exports=t():typeof define=="function"&&typeof define.amd=="object"?define(t):this[e]=t()}("domready",function(e){function p(e){h=1;while(e=t.shift())e()}var t=[],n,r=!1,i=document,s=i.documentElement,o=s.doScroll,u="DOMContentLoaded",a="addEventListener",f="onreadystatechange",l="readyState",c=o?/^loaded|^c/:/^loaded|c/,h=c.test(i[l]);return i[a]&&i[a](u,n=function(){i.removeEventListener(u,n,r),p()},r),o&&i.attachEvent(f,n=function(){/^c/.test(i[l])&&(i.detachEvent(f,n),p())}),e=o?function(n){self!=top?h?n():t.push(n):function(){try{s.doScroll("left")}catch(t){return setTimeout(function(){e(n)},50)}n()}()}:function(e){h?e():t.push(e)}})
 
-// Get all elements with certain ID
+// Get elements with starting ID
 function getElementsStartsWithId(e){var t=document.body.getElementsByTagName("*");var n=[],r;for(var i=0,s=t.length;i<s;i++){r=t[i];if(r.id.substr(0,e.length)==e)n.push(r)}return n}
 
 // Variables that need to be set outside of the function
@@ -22,7 +22,6 @@ function debug() {
     var trace_wrapper = document.getElementById('trace_wrapper');
     var codes_container = document.getElementById('codes_container');
     var source_elements = getElementsStartsWithId('source');
-    var page_data = document.getElementsByClassName('page_data')[0];
     var viewportwidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
     var viewportheight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
 
@@ -36,7 +35,6 @@ function debug() {
         var codes_container_height = codes_container.offsetHeight;
         var trace_container_width = trace_container.offsetWidth;
         var trace_container_height = trace_wrapper.offsetHeight;
-        var page_data_height = page_data.offsetHeight;
         var restheight = viewportheight - header_height;
         var divideby = codes_container_height/trace_container_height;
         var amount = codes_container_top/divideby;

@@ -99,9 +99,6 @@ document.body.className = ''; document.documentElement.className = '';
             <? endif ?>
             <? unset($args_id, $source_id); ?>
             <? endforeach ?>
-            <div class="page_data">
-                - That's it! -
-            </div>
         </div>
     </div>
 </div>
